@@ -1,11 +1,11 @@
-variable "workspace" {
+variable "spacename" {
     description = "the workspace to derive state variables from"
     type = string
 }
 
 locals {
     # breakdown the workspace to figure out what we need to reference
-    breakdown = regexall("(([a-z]+)-)?([a-z]+)-([a-z]+)", var.workspace)
+    breakdown = regexall("(([a-z]+)-)?([a-z]+)-([a-z]+)", var.spacename)
 
     # grab the relevant information from the breakdown
     env = local.breakdown[0][2]
